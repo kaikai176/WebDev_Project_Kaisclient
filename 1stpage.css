@@ -227,3 +227,11 @@ h2 {
     padding: 30px 24px;
   }
 }
+.hero-image-placeholder img {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.hero-image-placeholder img.is-loaded {
+  opacity: 1;
+}
