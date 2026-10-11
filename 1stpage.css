@@ -1,70 +1,229 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-margin: 0;
-font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #17324a;
+  background: #f2f8fb;
+}
+
+.hero {
+  position: relative;
+  min-height: 690px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #d9f0f7, #f4f9fc 58%, #b9deea);
+}
+
+.hero-image-placeholder {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 52%;
+  background: linear-gradient(145deg, #9bc9d8, #e5f3f7 65%, #73aabd);
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.hero-image-placeholder img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  min-height: 690px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 .topbar {
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0;
 }
 
 .logo {
-font-size: 24px;
-font-weight: bold;
+  color: #123b56;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 nav ul {
-display: flex;
-list-style: none;
-gap: 30px;
-margin: 0;
-padding: 0;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 nav a {
-color: black;
-text-decoration: none;
-font-size: 16px;
+  color: #23465c;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 nav a:hover {
-text-decoration: underline;
+  color: #087e9b;
 }
 
 .book-button {
-padding: 10px 20px;
-border: none;
-border-radius: 20px;
-background-color: white;
-color: black;
-cursor: pointer;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 24px;
+  color: #fff;
+  background: #087e9b;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.hero-image-placeholder img {
-  display: block;
-  width: 100%;
-  max-width: 720px;
-  height: auto;
-  transform: rotate(90deg);
+.book-button:hover {
+  background: #075f78;
 }
 
-.hero-content h1 {
-font-family: Georgia, serif;
-font-size: 70px;
-margin: 20px 0;
+.hero-content {
+  max-width: 540px;
+  padding: 80px 0 110px;
 }
 
 .eyebrow {
-text-transform: uppercase;
-letter-spacing: 2px;
-font-size: 13px;
+  color: #087e9b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-.hero-image-placeholder img {
-  display: block;
-  width: 100%;
-  max-width: 600px;
-  height: auto;
+.hero-content h1 {
+  margin: 20px 0;
+  color: #123b56;
+  font-family: Georgia, serif;
+  font-size: clamp(52px, 7vw, 82px);
+  line-height: 0.98;
+}
+
+.hero-description {
+  max-width: 420px;
+  color: #456477;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.scroll {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #456477;
+  font-size: 13px;
+}
+
+.scroll-line {
+  width: 54px;
+  height: 2px;
+  background: #087e9b;
+}
+
+.welcome,
+.story,
+.contact {
+  padding: 90px 24px;
+}
+
+.welcome-card,
+.story-card,
+.contact-card {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 48px;
+  border: 1px solid #dcebf0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(23, 50, 74, 0.07);
+}
+
+h2 {
+  margin: 14px 0 22px;
+  color: #123b56;
+  font-family: Georgia, serif;
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1.12;
+}
+
+.welcome-card p:not(.eyebrow),
+.story-card p:not(.eyebrow),
+.contact-card p:not(.eyebrow) {
+  color: #496477;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.story {
+  background: #e7f3f7;
+}
+
+.contact {
+  background: #d9edf3;
+}
+
+.contact-card {
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .hero,
+  .hero-inner {
+    min-height: 650px;
+  }
+
+  .hero-image-placeholder {
+    width: 100%;
+    opacity: 0.35;
+    clip-path: none;
+  }
+
+  .hero-inner {
+    padding: 0 22px;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+  }
+
+  nav ul {
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .hero-content {
+    padding: 80px 0;
+  }
+
+  .welcome,
+  .story,
+  .contact {
+    padding: 56px 18px;
+  }
+
+  .welcome-card,
+  .story-card,
+  .contact-card {
+    padding: 30px 24px;
+  }
 }
